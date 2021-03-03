@@ -15,9 +15,6 @@ class Student:
         for i in list_grades:
             count += len(i)
             sum_grades += sum(i)
-            #print(count)
-            #print(sum_grades)
-            #print(i)
         self.meanf = round(sum_grades/count, 2)
 
     def __str__(self):
@@ -53,23 +50,16 @@ class Student:
 
     def sumGardsStudent(self, spisokS, coursS):
         itog =0
-        #print(len(spisokS))
-        #print(spisokS[0])
-        #print(coursS)
         c = 0
         for i in spisokS:
             try:
                 a = i.grades[coursS]
                 a_sum = sum(a)
                 a_s_l = a_sum/len(a)
-                #print(a)
-                #print(a_sum)
-                #print(a_s_l)
                 itog += a_s_l
                 c += 1
             except Exception:
                 print('нет оценок у ', i.name)
-        #print(itog/len(spisokS))
         return round(itog/c, 2)
 
 
@@ -91,14 +81,9 @@ class Lecturer(Mentor):
         countL = 0
         sum_gradesL = 0
         list_grades = self.gradesLecturer.values()
-        #print(self.gradesLecturer)
-        #print(list_grades)
         for i in list_grades:
             countL += len(i)
             sum_gradesL += sum(i)
-            #print(countL)
-            #print(sum_gradesL)
-            #print(i)
         self.meanL = round(sum_gradesL / countL, 2)
 
     def __str__(self):
@@ -111,18 +96,11 @@ class Lecturer(Mentor):
         if not isinstance(other, Lecturer):
             print('error lt')
             return
-        #print(self.meanL)
-        #print(other.meanL)
         self.summeanL()
         other.summeanL()
-        #print(self.meanL)
-        #print(other.meanL)
         return (self.meanL) < (other.meanL)
 
     def sumGardsLecturers(self, listL, coursL):
-        #print(len(listL))
-        #print(listL[0])
-        #print(coursL)
         itog =0
         cL = 0
         for i in listL:
@@ -130,14 +108,10 @@ class Lecturer(Mentor):
                 a = i.gradesLecturer[coursL]
                 a_sum = sum(a)
                 a_s_l = a_sum/len(a)
-                #print(a)
-                #print(a_sum)
-                #print(a_s_l)
                 itog += a_s_l
                 cL += 1
             except Exception:
                 print('нет оценок у ', i.name)
-        #print(itog/len(listL))
         return round(itog/cL, 2)
 
 
@@ -160,16 +134,6 @@ class Reviewer(Mentor):
         else:
             print("ошибка", student.name, course, grade)
             return 'Ошибка'
-
-
-
-
-
-
-
-
-
-
 
 student1 = Student('pit', 'ivanov', 'male')
 student2 = Student('lisa', 'ivanova', 'female')
